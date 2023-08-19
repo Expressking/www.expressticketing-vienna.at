@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        
+ <style>
+     /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/cu-rrent tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+body {
+            background: linear-gradient(darkred, black);
+            color: gold;
+            font-family: 'Times New Roman', serif;
+        }
+        header {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            background: linear-gradient(to bottom, gold, lightgoldenrodyellow);
+            padding: 5px 10px;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        main {
+            text-align: center;
+            margin: 20px 0;
+        }
+        main .event {
+            border: 1px solid gold;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        main img {
+            width: 100%;
+            max-height: 300px;
+        }
+        main h3 {
+            color: gold;
+        }
+        main p {
+            margin: 10px 0;
+        }
+        main button {
+            background-color: gold;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        main button:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            background-color: gold;
+            color: black;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+        .tab:not(:last-child) {
+            margin-right: 0;
+        }
+        .active-tab {
+            background-color: lightgoldenrodyellow;
+        }
+        .vivaldi-font {
+            font-family: 'Vivaldi', cursive;
+        }
+
+}
+        header {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            background: linear-gradient(to bottom, gold, lightgoldenrodyellow);
+            padding: 5px 10px;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        main {
+            text-align: center;
+            margin: 20px 0;
+        }
+        main .event {
+            border: 1px solid gold;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        main img {
+            width: 100%;
+            max-height: 300px;
+        }
+        main h3 {
+            color: gold;
+        }
+        main p {
+            margin: 10px 0;
+        }
+        main button {
+            background-color: gold;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            background-color: gold;
+            color: black;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+        .tab:not(:last-child) {
+            margin-right: 0;
+        }
+        .active-tab {
+            background-color: lightgoldenrodyellow;
+        }
+        .vivaldi-font {
+            font-family: 'Vivaldi', cursive;
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"], form input[type="number"] {
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid gold;
+            border-radius: 5px;
+        }
+        form select {
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid gold;
+            border-radius: 5px;
+        }
+
+ </style>       
+        
+        <script>
+            function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+        </script>
+        
+        
+        <!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'home')" style="background-color:gold; color:darkred;">home</button>
+  <button class="tablinks" onclick="openCity(event, 'booking')" style="background-color:gold; color:darkred;">booking</button>
+  <button class="tablinks" onclick="openCity(event, 'kontakt')" style="background-color:gold; color:darkred;">kontakt</button>
+</div>
+
+<!-- Tab content -->
+<div id="home" class="tabcontent">
+  
+  <main>
+        <h2 class="vivaldi-font">Verfügbare Veranstaltungen</h2>
+        <div class="event">
+            <img src="https://royal-classic.at/wp-content/uploads/2022/04/Royal_Orchester_H_Ind.png" alt="Wiener Royal Orchester">
+            <h3>Wiener Royal Orchester</h3>
+            <p>Preis ab 54€</p>
+            <p>Konzert um 20:00 Uhr, Donnerstag bis Sonntag</p>
+            <button>Ticket buchen</button>
+        </div>
+        <div class="event">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/1b/e3/57/concert-at-the-wiener.jpg?w=1200&h=1200&s=1" alt="Wiener Mozart Orchester">
+            <h3>Wiener Mozart Orchester</h3>
+            <p>Ticket Preis ab 59€</p>
+            <p>Konzert beginnt um 20:00 Uhr</p>
+            <button>Ticket buchen</button>
+        </div>
+        <div class="event">
+            <img src="https://m.media-amazon.com/images/I/61-BtvZ37bL._UF1000,1000_QL80_.jpg" alt="Salonorchester alt Wien">
+            <h3>Salonorchester alt Wien</h3>
+            <p>Ticket Preis ab 65€</p>
+            <p>Konzert beginnt um 20:15 Uhr</p>
+            <button href="#">Ticket buchen</button>
+        </div>
+    </main>
+</div>
+
+<div id="booking" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+  <div id="booking" class="event">
+            <form>
+                <h2 class="vivaldi-font">Buchung</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="surname">Nachname:</label>
+                <input type="text" id="surname" name="surname" required>
+                <label for="address">Adresse:</label>
+                <input type="text" id="address" name="address" required>
+                <label for="phone">Telefon:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="email">E-Mail:</label>
+                <input type="text" id="email" name="email" required>
+                <label for="category">Ticket Kategorie:</label>
+                <select id="category" name="category">
+                    <option value="VIP">VIP - 59€</option>
+                    <option value="A">A - 49€</option>
+                    <option value="B">B - 39€</option>
+                </select>
+                <label for="quantity">Anzahl Tickets:</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <label for="payment">Zahlungsmethode:</label>
+                <select id="payment" name="payment">
+                    <option value="Visa">Visa</option>
+                    <option value="MasterCard">MasterCard</option>
+                </select>
+                <label for="iban">IBAN:</label>
+                <input type="text" id="iban" name="iban" required>
+                <label for="bic">BIC:</label>
+                <input type="text" id="bic" name="bic" required>
+                <label for="date">Datum:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit" style="background-color: gold; color: black; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">Jetzt buchen</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<div id="kontakt" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+    </head>
+    <body>
+        
+    </body>
+</html>
